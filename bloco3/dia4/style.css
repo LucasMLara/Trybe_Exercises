@@ -41,12 +41,37 @@ img {
   padding: 5px;
   background-color: white;
   margin: 15px 15px;
+}
+
+.tabela {
+
+  justify-content: center;
 
 }
 
+
 table {
-background-color: gray;
-width: 250px;
+
+  width: 250px;
+  justify-content: center;
+  margin: auto;
+}
+
+tr {
+
+  width: auto;
+  text-align: center;
+  padding: 10px;
+
+
+}
+
+td {
+
+  background-color: gray;
+  border: solid 1px black;
+  padding: 10px;
+
 
 }
 
@@ -62,6 +87,6 @@ footer font {
 
 aside {
 
-
+  text-align: center;
 
 }
