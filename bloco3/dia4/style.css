@@ -1,0 +1,67 @@
+* {
+
+  font-family: 'Lucida Sans', sans-serif;
+  color: antiquewhite;
+
+}
+
+header {
+
+  background-color: azure;
+
+}
+
+body{
+
+  background-image: url(https://www.teahub.io/photos/full/309-3094279_deep-ocean-wallpaper-4k.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+h1, h2, h3 {
+
+  font-size: 2em;
+  background-color: black;
+  text-align: center;
+
+}
+
+section {
+
+  text-align: justify;
+  font-size: larger;
+
+}
+
+img {
+
+  width: 400px;
+  float: left;
+  padding: 5px;
+  background-color: white;
+  margin: 15px 15px;
+
+}
+
+table {
+background-color: gray;
+width: 250px;
+
+}
+
+footer {
+  text-align: center;
+  background-color: black;
+  padding: 30px;
+}
+footer font {
+
+  font-size: 20px;
+}
+
+aside {
+
+
+
+}
