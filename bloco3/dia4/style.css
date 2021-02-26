@@ -9,6 +9,13 @@ header {
 
   background-color: azure;
 
+
+}
+
+li {
+
+  display: inline-block;
+
 }
 
 body{
@@ -72,6 +79,12 @@ td {
   border: solid 1px black;
   padding: 10px;
 
+
+}
+
+ul:nth-of-type(2)>:nth-child(1):nth-child(2) {
+
+    display: block;
 
 }
 
