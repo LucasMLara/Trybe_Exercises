@@ -5,17 +5,24 @@
 
 }
 
-header {
+.navHeader {
 
-  background-color: azure;
-
+  text-align: center;
+  padding: 20px;
 
 }
 
-li {
+.navHeader li, .navHeader a {
+  display: inline;
+  width: 150px;
+  font-size: 25px;
+  padding: 15px;
+  text-decoration: none;
 
-  display: inline-block;
+}
 
+.navHeader li:hover {
+  background-color: black;
 }
 
 body{
@@ -96,6 +103,12 @@ footer {
 footer font {
 
   font-size: 20px;
+}
+
+footer li, footer a {
+  display: inline-block;
+  text-decoration: none;
+
 }
 
 aside {
