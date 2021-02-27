@@ -47,3 +47,18 @@ if (d > 0) {
 } else {
   console.log('zero')
 }
+
+//Exercício 5
+
+let e = 45;
+let f = 45;
+let g = 90;
+
+if (e + f + g === 180) {
+  console.log('true')
+} else if (e + f +g !== 180) {
+  console.log('false')
+} else {
+  console.log('Erro')
+}
+
