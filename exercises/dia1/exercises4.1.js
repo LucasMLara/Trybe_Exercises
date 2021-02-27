@@ -4,11 +4,13 @@ let a = 5;
 let b = 2;
 let c = 9;
 
-soma = a+b;
-subtracao = a-b;
-multiplicacao = a*b;
-divisao = a/b;
-modulo = a**b;
+
+let soma = a+b;
+let subtracao = a-b;
+let multiplicacao = a*b;
+let divisao = a/b;
+let modulo = a**b;
+
 console.log(soma);
 console.log(subtracao);
 console.log(multiplicacao);
@@ -22,4 +24,26 @@ if (a>b) {
 }
 else {
   console.log(b)
+}
+
+//Exercício 3
+
+if (a>b && a>c) {
+  console.log(a)
+} else if (b>a && b>c) {
+  console.log(b)
+} else {
+  console.log(c)
+}
+
+//Exercício 4
+
+let d = -4;
+
+if (d > 0) {
+  console.log('positive')
+} else if (d < 0) {
+  console.log('negative')
+} else {
+  console.log('zero')
 }
