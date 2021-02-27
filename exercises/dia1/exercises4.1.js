@@ -5,11 +5,11 @@ let b = 2;
 let c = 9;
 
 
-let soma = a+b;
-let subtracao = a-b;
-let multiplicacao = a*b;
-let divisao = a/b;
-let modulo = a**b;
+let soma = a + b;
+let subtracao = a - b;
+let multiplicacao = a * b;
+let divisao = a / b;
+let modulo = a ** b;
 
 console.log(soma);
 console.log(subtracao);
@@ -19,7 +19,7 @@ console.log(modulo);
 
 //Exercício 2
 
-if (a>b) {
+if (a > b) {
   console.log(a)
 }
 else {
@@ -28,9 +28,9 @@ else {
 
 //Exercício 3
 
-if (a>b && a>c) {
+if (a > b && a > c) {
   console.log(a)
-} else if (b>a && b>c) {
+} else if (b > a && b > c) {
   console.log(b)
 } else {
   console.log(c)
@@ -56,9 +56,42 @@ let g = 90;
 
 if (e + f + g === 180) {
   console.log('true')
-} else if (e + f +g !== 180) {
+} else if (e + f + g !== 180) {
   console.log('false')
 } else {
   console.log('Erro')
 }
 
+//Exercício 6
+
+let h = "QueEn";
+
+switch (h.toLowerCase()) {
+  case "king".toLowerCase():
+    console.log('move para todos as direções em 1 casa')
+    break;
+
+  case "pawn":
+    console.log('move pra cima')
+    break;
+
+  case "queen":
+    console.log('move para todos os lados, quantas casas quiser')
+    break;
+
+  case "rooks":
+    console.log('move para cima, baixo, esquerda direita, quantas casas quiser')
+    break;
+
+  case "bishops":
+    console.log('move na diagonal')
+    break;
+
+  case "knight":
+    console.log('move em L')
+    break;
+
+  default:
+    console.log('Falhou miseravalmente!!!')
+
+}
