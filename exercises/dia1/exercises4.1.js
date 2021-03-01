@@ -129,3 +129,27 @@ else if (nota >= 90) {
 
   console.log('F');
 }
+
+//Exercício 8
+
+let y = 12
+let x = -5
+let z = 9
+
+if (y%2 === 0 || x%2 === 0 || z%2 === 0) {
+  console.log('true')
+} else {
+  console.log('false')
+}
+
+//Exercício 9
+
+let y = 397
+let x = -5
+let z = 9
+
+if (y%2 === 1 || x%2 === 1 || z%2 === 1) {
+  console.log('true')
+} else {
+  console.log('false')
+}
