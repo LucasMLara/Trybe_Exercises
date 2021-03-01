@@ -168,3 +168,36 @@ if (cost < 0 || sell <0) {
 } else {
   console.log(profit*1000)
 }
+
+//Exercício 11
+
+let salary = 3500;
+let inss;
+let ir;
+let taxDeduction;
+
+if (salary <= 1556.94) {
+  let inss = 0.08*salary;
+
+} else if (salary >= 1556.95 && salary <= 2594.92) {
+  let inss = 0.09*salary;
+
+} else if (salary >= 2594.93 && salary <= 5189.82) {
+  let inss = 0.11*salary;
+
+} else if (salary > 5189.82) {
+  let inss = 570.88
+}
+
+if (salary >= 1903.99 && 2826.65) {
+  let ir = salary*0.075 - 142.8;
+} else if (salary >= 2826.66 && 3751.05) {
+  let ir = salary*0.15 - 354.80
+} else if (salary >= 3751.06 && salary <= 4664.68) {
+  let ir = salary*0.225 - 636.13
+} else if (salary > 4664.68) {
+  let ir = salary*0.275 - 869.36
+}
+let trueSalary = salary - ir - inss;
+
+console.log(trueSalary);
