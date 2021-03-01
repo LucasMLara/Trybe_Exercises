@@ -153,3 +153,18 @@ if (y%2 === 1 || x%2 === 1 || z%2 === 1) {
 } else {
   console.log('false')
 }
+
+//Exercício 10
+
+let cost = 50;
+let sell = 120;
+let tax = cost*0.2;
+
+let totalCostValue = cost + tax;
+let profit = sell - totalCostValue;
+
+if (cost < 0 || sell <0) {
+  console.log('Ta sonegando????')
+} else {
+  console.log(profit*1000)
+}
