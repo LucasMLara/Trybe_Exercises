@@ -171,33 +171,37 @@ if (cost < 0 || sell <0) {
 
 //Exercício 11
 
-let salary = 8000;
+let salarioBruto = 3500;
 let inss;
 let ir;
-let taxDeduction;
 
-if (salary <= 1556.94) {
-  inss = 0.08*salary;
+if (salarioBruto <= 1556.94) {
+  inss = 0.08*salarioBruto;
 
-} else if (salary >= 1556.95 && salary <= 2594.92) {
-  inss = 0.09*salary;
+} else if (salarioBruto <= 2594.92) {
+  inss = 0.09*salarioBruto;
 
-} else if (salary >= 2594.93 && salary <= 5189.82) {
-  inss = 0.11*salary;
+} else if (salarioBruto <= 5189.82) {
+  inss = 0.11*salarioBruto;
 
-} else if (salary > 5189.82) {
+} else {
   inss = 570.88
 }
+console.log(inss);
 
-if (salary >= 1903.99 && 2826.65) {
-  ir = salary*0.075 - 142.8;
-} else if (salary >= 2826.66 && 3751.05) {
-  ir = salary*0.15 - 354.80
-} else if (salary >= 3751.06 && salary <= 4664.68) {
-  ir = salary*0.225 - 636.13
-} else if (salary > 4664.68) {
-  ir = salary*0.275 - 869.36
+
+if (salarioBruto <= 1903.98) {
+  ir = 0;
+} else if (salarioBruto <= 2826.65) {
+  ir = (salarioBruto*0.075) - 142.80;
+} else if (salarioBruto <= 3751.05) {
+  ir = (salarioBruto*0.15) - 354.80;
+} else if (salarioBruto <= 4664.68) {
+  ir = (salarioBruto*0.225) - 636.13;
+} else {
+  ir = (salarioBruto*0.275) - 869.36;
 }
-let trueSalary = salary - ir - inss;
+let trueSalary = salarioBruto - ir - inss;
 
+console.log(inss)
 console.log(trueSalary);
