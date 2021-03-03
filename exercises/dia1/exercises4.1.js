@@ -187,21 +187,24 @@ if (salarioBruto <= 1556.94) {
 } else {
   inss = 570.88
 }
-console.log(inss);
 
+//console.log(inss);
 
-if (salarioBruto <= 1903.98) {
+//let trueSalary = salarioBruto - ir - inss;
+
+let trueSalary = salarioBruto - inss;
+
+if (trueSalary <= 1903.98) {
   ir = 0;
-} else if (salarioBruto <= 2826.65) {
-  ir = (salarioBruto*0.075) - 142.80;
-} else if (salarioBruto <= 3751.05) {
-  ir = (salarioBruto*0.15) - 354.80;
-} else if (salarioBruto <= 4664.68) {
-  ir = (salarioBruto*0.225) - 636.13;
+} else if (trueSalary <= 2826.65) {
+  ir = (trueSalary*0.075) - 142.80;
+} else if (trueSalary <= 3751.05) {
+  ir = (trueSalary*0.15) - 354.80;
+} else if (trueSalary <= 4664.68) {
+  ir = (trueSalary*0.225) - 636.13;
 } else {
-  ir = (salarioBruto*0.275) - 869.36;
+  ir = (trueSalary*0.275) - 869.36;
 }
-let trueSalary = salarioBruto - ir - inss;
 
 console.log(inss)
-console.log(trueSalary);
+console.log(trueSalary - ir);
