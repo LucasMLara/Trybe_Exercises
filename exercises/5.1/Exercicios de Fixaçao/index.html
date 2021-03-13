@@ -61,9 +61,15 @@
       }
       headCorrect('h1', 0, 'Exercício 5.1 - JavaScript')
 
+      function upperText (upperText, upperPosition, upperValue) {
+        let paragraph = document.getElementsByTagName(upperText);
+
+          paragraph[0].innerText = paragraph[0].innerText.toUpperCase();
+      }
+      upperText('p', 0,);
+
         /*
-        Crie uma função que corrija o texto da tag <h1>.
-          Crie uma função que modifique todo o texto da tag <p> para maiúsculo.
+
               Crie uma função que exiba o conteúdo de todas as tags <p> no console.
                 Aqui você vai modificar os elementos já existentes utilizando apenas as funções:
                 - document.getElementById()
