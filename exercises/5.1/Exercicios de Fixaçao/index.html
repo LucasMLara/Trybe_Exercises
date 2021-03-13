@@ -56,8 +56,12 @@
 
       innerSquare('center-content', 0, 'white')
 
+      function headCorrect(wrongText, textPosition, textValue) {
+        document.getElementsByTagName(wrongText)[textPosition].innerText = textValue;
+      }
+      headCorrect('h1', 0, 'Exercício 5.1 - JavaScript')
+
         /*
-        Crie uma função que mude a cor do quadrado vermelho para branco.
         Crie uma função que corrija o texto da tag <h1>.
           Crie uma função que modifique todo o texto da tag <p> para maiúsculo.
               Crie uma função que exiba o conteúdo de todas as tags <p> no console.
