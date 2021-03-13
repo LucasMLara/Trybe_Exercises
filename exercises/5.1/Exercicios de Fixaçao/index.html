@@ -68,6 +68,17 @@
       }
       upperText('p', 0,);
 
+      function consoleShow() {
+        let paragraphShow = document.getElementsByTagName('p');
+
+          for (let index = 0; index < paragraphShow.length; index+=1) {
+
+            console.log(paragraphShow[index].innerHTML);
+          }
+
+        }
+        consoleShow();
+
         /*
 
               Crie uma função que exiba o conteúdo de todas as tags <p> no console.
