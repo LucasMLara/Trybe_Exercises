@@ -25,16 +25,32 @@
 
   <script>
 
-console.log(document.querySelector('#pai').childNodes[5]);
+// Criar variável resgata elemento
+// Criar variável que cria elemento
+// Invocar função para adicionar o elemento no html
+    // <!-- E a prática? Aqui!
+    // Crie um irmão para elementoOndeVoceEsta .
+    // Crie um filho para elementoOndeVoceEsta .
+    // Crie um filho para primeiroFilhoDoFilho .
+    // A partir desse filho criado, acesse terceiroFilho . -->
+
+    // document.createElement('div').appendChild(document.querySelector('#pai'));
+
+      let whereIam = document.querySelector("#elementoOndeVoceEsta");
+      let brother1 = document.createElement('div');
+      whereIam.parentNode.appendChild(brother1);
+
+      let brother2 = document.createElement('div');
+
+      whereIam.appendChild(brother2);
+
+      let grandSon = document.querySelector('#primeiroFilhoDoFilho');
+      let gGrandSon = document.createElement('div');
+
+      gGrandSon.setAttribute('id','lastOne');
+      grandSon.appendChild(gGrandSon);
 
 
-
-// document.querySelector("#elementoOndeVoceEsta").parentNode.style.color = 'green';
-// document.querySelector("#primeiroFilhoDoFilho").innerText = 'Adicionando Texto';
-// document.querySelector("#elementoOndeVoceEsta").previousElementSibling;
-// // console.log(document.querySelector("#elementoOndeVoceEsta").nextSibling);
-// console.log(document.querySelector("#elementoOndeVoceEsta").nextElementSibling);
-// document.querySelector("#pai").firstChild;
 
 
 
