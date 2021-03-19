@@ -7,5 +7,5 @@ let player = {
     silver: 3,
   }
 }
-
+// Text 
 console.log('A Jogadora ' + player.name + ' ' + player.lastName + ' tem ' + player.age + ' anos de idade.');
