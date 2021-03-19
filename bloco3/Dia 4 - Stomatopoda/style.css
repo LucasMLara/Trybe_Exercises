@@ -1,0 +1,117 @@
+* {
+
+  font-family: 'Lucida Sans', sans-serif;
+  color: antiquewhite;
+
+}
+
+.navHeader {
+
+  text-align: center;
+  padding: 20px;
+
+}
+
+.navHeader li, .navHeader a {
+  display: inline;
+  width: 150px;
+  font-size: 25px;
+  padding: 15px;
+  text-decoration: none;
+
+}
+
+.navHeader li:hover {
+  background-color: black;
+}
+
+body{
+
+  background-image: url(https://www.teahub.io/photos/full/309-3094279_deep-ocean-wallpaper-4k.jpg);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+
+}
+h1, h2, h3 {
+
+  font-size: 2em;
+  background-color: black;
+  text-align: center;
+
+}
+
+section {
+
+  text-align: justify;
+  font-size: larger;
+
+}
+
+img {
+
+  width: 400px;
+  float: left;
+  padding: 5px;
+  background-color: white;
+  margin: 15px 15px;
+}
+
+.tabela {
+
+  justify-content: center;
+
+}
+
+
+table {
+
+  width: 250px;
+  justify-content: center;
+  margin: auto;
+}
+
+tr {
+
+  width: auto;
+  text-align: center;
+  padding: 10px;
+
+
+}
+
+td {
+
+  background-color: gray;
+  border: solid 1px black;
+  padding: 10px;
+
+
+}
+
+ul:nth-of-type(2)>:nth-child(1):nth-child(2) {
+
+    display: block;
+
+}
+
+footer {
+  text-align: center;
+  background-color: black;
+  padding: 30px;
+}
+
+footer li, footer a {
+  display: inline-block;
+  text-decoration: none;
+  width: 125px;
+  border: 1px solid white;
+
+}
+
+
+aside {
+
+  text-align: center;
+
+}
