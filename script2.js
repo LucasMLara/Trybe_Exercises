@@ -18,19 +18,24 @@
 
 
 
-const oddsAndEvens = [13, 3, 4, 10, 7, 2];
-const orderNumbers = (x) => {
-  let aux;
-  for (let index = 0; index < oddsAndEvens.length; index += 1) {
+// const oddsAndEvens = [13, 3, 4, 10, 7, 2];
+// const orderNumbers = (x) => {
+//   let aux;
+//   for (let index = 0; index < oddsAndEvens.length; index += 1) {
 
-    for (let indice = 0; indice < oddsAndEvens.length - index; indice += 1) {
-      if (oddsAndEvens[indice] > oddsAndEvens[indice + 1]) {
-        aux = oddsAndEvens[indice + 1];
-        oddsAndEvens[indice + 1] = oddsAndEvens[indice];
-        oddsAndEvens[indice] = aux;
-      }
-    }console.log(oddsAndEvens)
-  }
-  return oddsAndEvens;
-};
-console.log(`${orderNumbers(oddsAndEvens)}`);
+//     for (let indice = 0; indice < oddsAndEvens.length - index; indice += 1) {
+//       if (oddsAndEvens[indice] > oddsAndEvens[indice + 1]) {
+//         aux = oddsAndEvens[indice + 1];
+//         oddsAndEvens[indice + 1] = oddsAndEvens[indice];
+//         oddsAndEvens[indice] = aux;
+//       }
+//     }console.log(oddsAndEvens)
+//   }
+//   return oddsAndEvens;
+// };
+// console.log(`${orderNumbers(oddsAndEvens)}`);
+
+
+const oddsAndEvens = [13, 3, 4, 10, 7, 2];
+
+console.log(oddsAndEvens.sort((a, b) => a - b));

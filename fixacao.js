@@ -17,19 +17,19 @@
 // testingScope(true);
 
 
-const testingScope2 = (escopo) => {
-  if (escopo) {
-    let ifScope = `Não devo ser utilizada fora do meu escopo (if)`;
-    ifScope = `${ifScope} ótimo, fui utilizada no escopo !`;
-    console.log(ifScope);
-  } else {
-    let elseScope = `Não devo ser utilizada fora do meu escopo (else)`;
-    console.log(elseScope);
-  }
+// const testingScope2 = (escopo) => {
+//   if (escopo) {
+//     let ifScope = `Não devo ser utilizada fora do meu escopo (if)`;
+//     ifScope = `${ifScope} ótimo, fui utilizada no escopo !`;
+//     console.log(ifScope);
+//   } else {
+//     let elseScope = `Não devo ser utilizada fora do meu escopo (else)`;
+//     console.log(elseScope);
+//   }
   
-}
+// }
 
-testingScope2(false);
+// testingScope2(false);
 
 
 
@@ -76,10 +76,25 @@ testingScope2(false);
 
 // refatorando para template literals 
 
-const testingScope = (escopo) => {
-  const ifScope = (escopo === true) ? 'Não devo ser utilizada fora do meu escopo (if) ótimo, fui utilizada no escopo !': 'Não devo ser utilizada fora meu escopo (else)';
-  console.log(`${ifScope} o que estou fazendo aqui ? :O`); // Se necessário esta linha pode ser removida.
-}
+// const testingScope = (escopo) => {
+//   const ifScope = (escopo === true) ? 'Não devo ser utilizada fora do meu escopo (if) ótimo, fui utilizada no escopo !': 'Não devo ser utilizada fora meu escopo (else)';
+//   console.log(`${ifScope} o que estou fazendo aqui ? :O`); // Se necessário esta linha pode ser removida.
+// }
 
+
+// testingScope(true);
+
+
+const testingScope = (escopo) => {
+  if (escopo === true) {
+    let ifScope = 'Não devo ser utilizada fora do meu escopo (if)';
+    
+    console.log(` ${ifScope} ótimo, fui utilizada no escopo ! `);
+    
+  } else {
+    let elseScope = 'Não devo ser utilizada fora meu escopo (else)';
+    console.log(elseScope);
+  }
+}
 
 testingScope(true);
