@@ -34,10 +34,10 @@ const order = {
   },
 };
 
-const customerInfo = (order) => {
-  const {deliveryPerson} = order.order.delivery;
-  const {name,phoneNumber} = order;
-  const {street,number,apartment} = order.address;
+const customerInfo = ({name,phoneNumber,address:{street, number, apartment}, order:{delivery:{deliveryPerson}}}) => {
+  // const {deliveryPerson} = order.order.delivery;
+  // const {name,phoneNumber} = order;
+  // const {street,number,apartment} = order.address;
 
 console.log(`Olá ${deliveryPerson}, entrega para: ${name}, Telefone: ${phoneNumber},  ${street}, Nº ${number}, AP: ${apartment}`);
 }
