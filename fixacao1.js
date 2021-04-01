@@ -1,10 +1,10 @@
 const order = {
-  name: 'Rafael Andrade',
-  phoneNumber: '11-98763-1416',
+  name: "Rafael Andrade",
+  phoneNumber: "11-98763-1416",
   address: {
-    street: 'Rua das Flores',
-    number: '389',
-    apartment: '701',
+    street: "Rua das Flores",
+    number: "389",
+    apartment: "701",
   },
   order: {
     pizza: {
@@ -15,32 +15,41 @@ const order = {
       pepperoni: {
         amount: 1,
         price: 20,
-      }
+      },
     },
     drinks: {
       coke: {
-        type: 'Coca-Cola Zero',
+        type: "Coca-Cola Zero",
         price: 10,
         amount: 1,
-      }
+      },
     },
     delivery: {
-      deliveryPerson: 'Ana Silveira',
+      deliveryPerson: "Ana Silveira",
       price: 5,
-    }
+    },
   },
   payment: {
     total: 60,
   },
 };
 
-const customerInfo = ({name,phoneNumber,address:{street, number, apartment}, order:{delivery:{deliveryPerson}}}) => {
+const customerInfo = ({
+  name: fullName,
+  phoneNumber,
+  address: { street, number, apartment },
+  order: {
+    delivery: { deliveryPerson },
+  },
+}) => {
   // const {deliveryPerson} = order.order.delivery;
   // const {name,phoneNumber} = order;
   // const {street,number,apartment} = order.address;
 
-console.log(`Olá ${deliveryPerson}, entrega para: ${name}, Telefone: ${phoneNumber},  ${street}, Nº ${number}, AP: ${apartment}`);
-}
+  console.log(
+    `Olá ${deliveryPerson}, entrega para: ${fullName}, Telefone: ${phoneNumber},  ${street}, Nº ${number}, AP: ${apartment}`
+  );
+};
 
 customerInfo(order);
 
