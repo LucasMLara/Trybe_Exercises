@@ -1,11 +1,35 @@
-const assert = require('assert');
+const myExpenses = [
+  {
+    gym: 99,
+  },
+  {
+    ifood: 200,
+  },
+  {
+    phone: 60,
+  },
+  {
+    internet: 100,
+  },
+];
 
-const pushNumber = (list, number) => list.push(number);
+const myIncome = 1000;
 
-let numbers = [];
+const monthlyBudget = (myIncome, myExpenses, callback) => {
 
-setTimeout(() => pushNumber(numbers, 1), 3000);
-pushNumber(numbers, 2);
-pushNumber(numbers, 3);
+  const totalExpenses = callback(myExpenses);
+  const totalAfterExpenses = myIncome - totalExpenses;
 
-assert.deepStrictEqual(numbers, [1, 2, 3]); // essa validação falha
+  console.log(`Balanço do mês:
+    Recebido: R$${myIncome},00
+      Gasto: R$${totalExpenses},00
+      Saldo: R$${totalAfterExpenses},00 `);
+};
+
+const handleExpenses = myExpenses => {
+  const eachValue = myExpenses.map((item) => Object.values(item)[0]);
+  const totalExpense = eachValue.reduce((acc, curr) => acc + curr , 0);
+  return totalExpense;
+};
+
+monthlyBudget(myIncome, myExpenses, handleExpenses);
