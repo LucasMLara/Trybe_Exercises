@@ -87,16 +87,16 @@ SELECT rental_date 'Data e Hora do pedido' FROM sakila.rental
 WHERE rental_id = 10330;
 
 SELECT rental_id 'ID', rental_date 'Data Completa',
- YEAR(rental_date) 'Ano',
- MONTH(rental_date) 'Mês',
- DAY(rental_date) 'Dia',
- HOUR(rental_date) 'Hora',
- MINUTE(rental_date) 'Minuto',
- SECOND(rental_date) 'Segundo'
- FROM sakila.rental
- WHERE rental_id = 10330;
+YEAR(rental_date) 'Ano',
+MONTH(rental_date) 'Mês',
+DAY(rental_date) 'Dia',
+HOUR(rental_date) 'Hora',
+MINUTE(rental_date) 'Minuto',
+SECOND(rental_date) 'Segundo'
+FROM sakila.rental
+WHERE rental_id = 10330;
 
- -- Monte uma query que retorne todos os dados do pagamento feito no dia 28/07/2005 a partir das 22 horas .
+-- Monte uma query que retorne todos os dados do pagamento feito no dia 28/07/2005 a partir das 22 horas .
 
 SELECT * FROM sakila.payment
 WHERE DATE(payment_date) LIKE '2005/07/28 22%';
@@ -141,7 +141,33 @@ ORDER BY preco;
 SELECT SUM(quantity) FROM PecasFornecedores.Vendas
 WHERE DATE(order_date) BETWEEN '2018-04-15' AND '2019-07-30';
 
+-- EXERCÍCIOS BÔNUS 
 
+-- Escreva uma query para exibir todas as informações de todos os cientistas que possuam a letra e em seu nome.
+SELECT * FROM Scientists.Scientists
+WHERE name LIKE '%e%';
+-- Escreva uma query para exibir o nome de todos os projetos cujo o código inicie com a letra A . Ordene o resultado em ordem alfabética.
+SELECT * FROM Scientists.Projects
+WHERE name LIKE 'A%'
+ORDER BY name;
+-- Escreva uma query para exibir o código e nome de todos os projetos que possuam em seu código o número 3 . Ordene o resultado em ordem alfabética.
+SELECT * FROM Scientists.Projects
+WHERE code LIKE '%3%'
+ORDER BY code;
+-- Escreva uma query para exibir todos os cientistas (valores numéricos) cujos projetos sejam AeH3 , Ast3 ou Che1 .
+SELECT * FROM Scientists.AssignedTo
+WHERE Project IN('AeH3', 'Ast3', 'Che1');
+-- Escreva uma query para exibir todas as informações de todos os projetos com mais de 500 horas.
+SELECT * FROM Scientists.Projects
+WHERE Hours > 500;
 
+-- Escreva uma query para exibir todas as informações de todos os projetos cujas horas sejam maiores que 250 e menores 800.
+SELECT * FROM Scientists.Projects
+WHERE Hours BETWEEN 250 AND 800;
+-- Escreva uma query para exibir o nome e o código de todos os projetos cujo nome NÃO inicie com a letra A .
+SELECT code FROM Scientists.Projects
+WHERE name NOT LIKE 'A%';
+-- Escreva uma query para exibir o nome de todos os projetos cujo código contenha a letra H .
 
-
+SELECT * FROM Scientists.Projects
+WHERE code LIKE '%H%';
