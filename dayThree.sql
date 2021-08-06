@@ -37,7 +37,7 @@ SELECT * FROM sakila.customer
 WHERE active <> 1;
 
 -- Mostre o nome, sobrenome e e-mail dos clientes com os seguintes sobrenomes: 
---hicks, crawford, henry, boyd, mason, morales e kennedy , ordenados por nome em ordem alfabética
+-- hicks, crawford, henry, boyd, mason, morales e kennedy , ordenados por nome em ordem alfabética
 
 SELECT first_name, last_name, email FROM sakila.customer
 WHERE last_name IN('hicks', 'crawford', 'henry', 'boyd', 'mason', 'morales', 'kennedy')
@@ -49,23 +49,56 @@ SELECT email from sakila.customer
 WHERE address_id BETWEEN 172 AND 176
 ORDER BY email;
 
---Descubra quantos pagamentos foram feitos entre 01/05/2005 e 01/08/2005 . 
---Lembre-se de que, no banco de dados, as datas estão armazenadas no formato ano/mês/dia , diferente do formato brasileiro, que é dia/mês/ano .
+-- Descubra quantos pagamentos foram feitos entre 01/05/2005 e 01/08/2005 . 
+-- Lembre-se de que, no banco de dados, as datas estão armazenadas no formato ano/mês/dia , diferente do formato brasileiro, que é dia/mês/ano .
 
 SELECT COUNT(*) FROM sakila.payment
 WHERE payment_date BETWEEN '2005/05/01' AND '2005/08/01';
 
---Mostre o título, ano de lançamento e duração do empréstimo de todos os filmes com a duração de empréstimo de 3 a 6 . 
---Os resultados devem ser classificados em filmes com maior duração de empréstimo primeiro. Em caso de empate, ordene em ordem alfabética pelo título.
+-- Mostre o título, ano de lançamento e duração do empréstimo de todos os filmes com a duração de empréstimo de 3 a 6 . 
+-- Os resultados devem ser classificados em filmes com maior duração de empréstimo primeiro. Em caso de empate, ordene em ordem alfabética pelo título.
 
 SELECT title, release_year, rental_duration FROM sakila.film
 WHERE rental_duration BETWEEN 3 AND 6
 ORDER BY rental_duration DESC, title;
 
---Monte um relatório que exiba o título e classificação dos 500 primeiros filmes direcionados para as classificações indicativas G, PG e PG-13 . 
---Os resultados devem estar ordenados por título.
+-- Monte um relatório que exiba o título e classificação dos 500 primeiros filmes direcionados para as classificações indicativas G, PG e PG-13 . 
+-- Os resultados devem estar ordenados por título.
 
 SELECT title, rating FROM sakila.film
 WHERE rating IN('G', 'PG', 'pg-13')
 ORDER BY title
 LIMIT 500;
+
+-- Quantos pagamentos temos com a data de retorno 2005-05-25 ? Há múltiplas maneiras possíveis de encontrar a resposta.
+
+SELECT COUNT(*) FROM sakila.payment WHERE (payment_date) LIKE '2005-05-25%';
+SELECT COUNT(*) FROM sakila.payment WHERE DATE(payment_date) = '2005-05-25%';
+
+-- Quantos pagamentos foram feitos entre 01/07/2005 e 22/08/2005 ?
+
+SELECT COUNT(*) FROM sakila.payment
+WHERE DATE(payment_date) BETWEEN '2005-07-01%' AND '2005-08-22%';
+
+-- Usando a tabela rental , extraia data, ano, mês, dia, hora, minuto e segundo dos registros com rental_id = 10330.
+-- Utilize a coluna rental_date para extrair as informações.
+
+SELECT rental_date 'Data e Hora do pedido' FROM sakila.rental
+WHERE rental_id = 10330;
+
+SELECT rental_id 'ID', rental_date 'Data Completa',
+ YEAR(rental_date) 'Ano',
+ MONTH(rental_date) 'Mês',
+ DAY(rental_date) 'Dia',
+ HOUR(rental_date) 'Hora',
+ MINUTE(rental_date) 'Minuto',
+ SECOND(rental_date) 'Segundo'
+ FROM sakila.rental
+ WHERE rental_id = 10330;
+
+ -- Monte uma query que retorne todos os dados do pagamento feito no dia 28/07/2005 a partir das 22 horas .
+
+SELECT * FROM sakila.payment
+WHERE DATE(payment_date) LIKE '2005/07/28 22%';
+
+
