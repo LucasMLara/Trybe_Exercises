@@ -142,3 +142,77 @@ END
 -- ELSE rental_rate
 -- END
 -- );
+
+
+
+-- DELETE
+
+DELETE FROM sakila.film_text
+WHERE title = 'ACADEMY DINOSAUR';
+
+SELECT * FROM sakila.actor;
+SELECT * FROM sakila.film_actor;
+
+DELETE FROM sakila.actor
+WHERE first_name = 'Grace';
+
+DELETE FROM sakila.film_actor
+WHERE actor_id = 7; -- actor_id = 7 é o Id de GRACE
+
+
+-- Exclua do banco de dados o ator com o nome de "KARL".
+
+SELECT * FROM sakila.actor
+WHERE first_name = 'KARL'; -- aqui pegamos, o ID = 12
+SELECT * FROM sakila.film_actor;
+
+-- Tendo este ator o ID originário de uma outra tabela, é necessário deletar a referência na tabela correspondente. Nesta tabela não há informação de nome, então necessitamos pegar o ID pelo nome na primeira tabela.
+-- após pegar esse ID, excluimos o ator PELO ID na tabela correspondente e depois excluimos o ator da tabela inicial;
+
+SELECT * FROM sakila.film_actor; -- aqui verificamos que há vários filmes com o ID deste ator. contando à seguir:
+SELECT * FROM sakila.film_actor
+WHERE actor_id = 12; -- conta-se 31 entradas. 
+
+-- em seguida, deletamos essa referência desta tabela.
+DELETE FROM sakila.film_actor
+WHERE actor_id = 12; -- pronto. todas as entradas com o respectivo ID foram deletadas. agora podemos voltar para a tabela "inicial"
+
+DELETE FROM sakila.actor
+WHERE first_name = 'KARL'; -- agora sim, foi realizado a remoção do registro. vamos verificar à seguir: 
+
+SELECT * FROM sakila.actor; -- perceba que o registro desapareceu! 
+
+-- Exclua do banco de dados os atores com o nome de "MATTHEW".
+
+SELECT * FROM sakila.actor
+WHERE first_name = 'MATTHEW'; -- verificamos os ID's 8, 103 e 181
+
+SELECT * FROM sakila.film_actor
+WHERE actor_id IN(8, 103, 181); -- verifica-se 89 registros. agora vamos apaga-los
+
+DELETE FROM sakila.film_actor
+WHERE actor_id IN(8, 103, 181); -- registros devidamente apagados. agora podemos apagar os atores com o nome solicitado.
+
+DELETE FROM sakila.actor
+WHERE first_name = 'MATTHEW'; -- Sucesso!
+
+
+-- Exclua da tabela film_text todos os registros que possuem a palavra "saga" em suas descrições.
+
+SELECT * FROM sakila.film_text
+WHERE description LIKE '%saga%'; -- vamos vericar o que temos na tabela!
+
+DELETE FROM sakila.film_text
+WHERE description LIKE '%saga%'; -- pronto. deletado. 
+
+-- Apague da maneira mais performática possível todos os registros das tabelas film_actor e film_category .
+TRUNCATE sakila.film_actor;
+TRUNCATE sakila.film_category;
+
+-- Inspecione todas as tabelas do banco de dados sakila e analise quais restrições ON DELETE foram impostas em cada uma. Use o Table Inspector para fazer isso (aba DDL).
+
+-- Analisando as CONSTRAINTS na aba DDL das tabelas, verificamos as restrições de delete nas tabelas.
+
+-- Exclua o banco de dados e o recrie (use as instruções no início desta aula).
+
+
