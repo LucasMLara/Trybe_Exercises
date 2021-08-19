@@ -34,10 +34,10 @@ db.restaurants.count( { $or: [ { rating: {$gte: 6} },{ borough:"Brooklyn"} ] } )
 use ('business');
 
 db.restaurants.count(
-  { $and:[ 
-      {borough: {$in:['Queens', 'Staten Island', 'Brooklyn']}},
-      {rating: {$gt: 4} }  ]
-  }
+{ $and:[ 
+    {borough: {$in:['Queens', 'Staten Island', 'Brooklyn']}},
+    {rating: {$gt: 4} }  ]
+}
 );
 
 // Selecione e faça a contagem dos restaurantes onde nem o campo avaliação seja igual a 1 , nem o campo culinária seja do tipo American .
@@ -52,10 +52,10 @@ use ('business');
 
 db.restaurants.count({
     $and: [
-      { $or: [{ rating: { $gt: 6, $lt: 10 } }] },
-      { $or: [{ borough: 'Brooklyn' }, { cuisine: { $ne: 'Delicatessen' } }] },
+    { $or: [{ rating: { $gt: 6, $lt: 10 } }] },
+    { $or: [{ borough: 'Brooklyn' }, { cuisine: { $ne: 'Delicatessen' } }] },
     ],
-  });
+});
 
 
 // Primeira tentativa;
@@ -155,16 +155,61 @@ use('class')
 
 db.superheroes.count();
 // Exercício 13: Selecione todos os super-heróis que não sejam humanos nem sejam maiores do que 1.80m .
+use('class')
 
+db.superheroes.find({$nor:[{race:"human"},{"aspects.height": {$gt:180}}]});
 
 // Exercício 14: Selecione todos os super-heróis com 1.80m ou 2.00m de altura e que sejam publicados pela Marvel Comics .
+use('class')
+
+db.superheroes.find(
+    {
+        $and:[
+            {
+                $or: [{ "aspects.height": 180 }, { "aspects.height": 200 }]
+            },
+            {
+                publisher: "Marvel Comics"
+            }
+        ]
+    }
+)
 
 // Exercício 15: Selecione todos os super-heróis que pesem entre 80kg e 100kg , sejam Humanos ou Mutantes e não sejam publicados pela DC Comics .
+use('class')
 
+db.superheroes.find(
+    {
+        $and: [
+            {
+                "aspects.weight": { $gte: 80, $lte: 100 }
+            },
+            {
+                $or: [{ race: "Human" }, { race: "Mutant" }]
+            },
+            {
+                publisher: { $ne: "DC Comics" }
+            }
+        ]
+    }
+)
 // Exercício 16: Retorne o total de documentos que não contêm o campo race .
+use('class')
+
+db.superheroes.count({race: {$exists: false}})
 
 // Exercício 17: Retorne o total de documentos que contêm o campo hairColor .
+use('class')
+
+db.superheroes.count({"aspects.hairColor": {$exists: true}})
 
 // Exercício 18: Remova apenas um documento publicado pela Sony Pictures .
+use('class')
+
+db.superheroes.deleteOne({publisher:"Sony Pictures"})
 
 // Exercício 19: Remova todos os documentos publicados pelo George Lucas .
+
+use('class')
+
+db.superheroes.deleteMany({publisher:"George Lucas"})
