@@ -89,14 +89,58 @@ db.movies.update({
 use ('class')
 
 db.movies.update({
-    title: 'Home Alone'
+    title: 'Godzilla'
 },{
     $max: {
-      budget: 5
+      imdbRating: 8.6
+    },
+    $set :{
+      "category.1": "thriller"
     }
 });
 
 // Exercício 10 : Utilizando o operador $currentDate , crie um campo chamado lastUpdated com o tipo timestamp no filme Home Alone .
+
+use ('class')
+db.movies.update(
+  { title: 'Home Alone' },
+  { $unset: { lastUpdated:""} }
+  );
+
+use ('class')
+db.movies.update(
+  { title: "Home Alone" },
+  { $currentDate: { lastUpdated: { $type: "timestamp" } } }
+);
+
 // Exercício 11 : Utilizando uma única operação, crie um campo chamado sequels e atribua a ele o valor 0 em todos os documentos.
+use ('class')
+db.movies.updateMany({},
+    {$set:{ sequels:0}}
+);
 // Exercício 12 : Utilizando uma única operação, remova os campos budget e estimatedBudget em todos os documentos.
+use ('class')
+db.movies.updateMany(
+  {},
+  { $unset: { 
+    estimatedBudget:"", budget:""
+    }
+  }
+  );
 // Exercício 13 : Para os filmes Batman ou Home Alone , atribua a imdbRating o valor 17 , caso o valor de imdbRating seja menor que 17 .
+use('class')
+db.movies.updateMany(
+  { $or: [{
+    title:'Batman'}, {title:'Home Alone'
+    }] },
+  {$max: {imdbRating:17} }
+  )
+
+// use('class')
+//  esqueci de por os objetos separados dentro de uma array quando se usar um $OR
+// db.movies.updateMany(
+//   { $or: [{
+//     title:'Batman', title:'Home Alone'
+//     }] },
+//   {$max: {imdbRating:17} }
+//   )
