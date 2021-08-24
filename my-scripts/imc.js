@@ -1,4 +1,10 @@
+const getData = require('readline-sync');
+
 const IMCCalculator = (weight, height) => {
+  
+  // const weight = getData.questionFloat('Qual o seu peso? (Em Kg)')
+  // const height = getData.questionInt('Qual o sua altura? (Em cm)')
+
     const IMC = (weight / (height * height)).toFixed(2);
     if( IMC <= 5) {
       console.log(`Seu IMC é ${IMC}! Vc está abaixo do peso recomendado!`)
@@ -8,6 +14,6 @@ const IMCCalculator = (weight, height) => {
       console.log(`Seu IMC é ${IMC}! Vc está acima do peso!`)
     }
     return IMC;
-}
+};
 
-IMCCalculator(90,1.80)
+IMCCalculator(95, 1.80)
