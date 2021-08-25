@@ -1,16 +1,12 @@
 const getData = require('readline-sync');
-const { equal } = require('assert');
-
-const weight = getData.questionFloat('Qual o seu peso? (Em Kg)');
-const height = getData.questionFloat('Qual o sua altura? (Em cm)');
-
-equal(weight, 80);
-equal(height, 1.8);
+// const { equal } = require('assert');
+// equal(weight, 80);
+// equal(height, 1.8);
 
 const IMCCalculator = (weight, height) => {
   console.log(`${height}, ${weight}`);
   const IMC = (weight / (height * height));
-console.log(IMC);
+  console.log(IMC);
   if (IMC < 18.5) {
     console.log(`Seu IMC é ${IMC}! Vc está abaixo do peso recomendado!`);
   } else if (IMC >= 18.5 && IMC <= 24.9) {
@@ -23,10 +19,13 @@ console.log(IMC);
     console.log(`Seu IMC é ${IMC}! Vc está com Obesidade Grau II!`);
   } else if (IMC > 40) {
     console.log(`Seu IMC é ${IMC}! Vc está com Obesidade Grau III e IV!`);
-  }else {
+  } else {
     console.log('ta zuado o bagulho');
   }
   return IMC;
 };
+
+const weight = getData.questionFloat('Qual o seu peso? (Em Kg)');
+const height = getData.questionFloat('Qual o sua altura? (Em metros. Utilize "." para separar as casas decimais)');
 
 IMCCalculator(weight, height);
