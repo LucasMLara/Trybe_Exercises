@@ -5,7 +5,7 @@
   "main": "asyncDivision.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "numberOne.js" : "node numberOne.js"
+    "numberOne.js": "node numberOne.js"
   },
   "keywords": [],
   "author": "",
@@ -14,5 +14,8 @@
     "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.24.2"
+  },
+  "dependencies": {
+    "prettier": "^2.3.2"
   }
 }
