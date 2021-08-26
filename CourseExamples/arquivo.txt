@@ -1,2 +1,0 @@
-Leitura de arquivo de testes de callbacks, bloco 26.1
-ração
