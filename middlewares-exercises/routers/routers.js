@@ -1,7 +1,7 @@
-const router = require('express').Router();
+// const router = require('express').Router();
 
-const {
-  validateUser,
-  validateEmail,
-  validatePassword
-} = require('./middlewares/allValidation')
+// const {
+//   validateUser,
+//   validateEmail,
+//   validatePassword
+// } = require('./middlewares/allValidation')
