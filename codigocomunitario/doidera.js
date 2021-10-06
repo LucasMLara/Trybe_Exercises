@@ -21,25 +21,23 @@ const escolaTrybe = [
   { note: 0.7, letra: 'C' },
   { note: 0.6, letra: 'D' },
   { note: 0.5, letra: 'E' },
-  { note: -1, letra: 'F' },
+  { note: 0, letra: 'F' },
 ];
 
 // formata ai lara !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-const percentageGradesIntoLettersDoidera = ({ name, disciplines }) => ({
+const percentageGradesIntoLettersDoidera = ({ name, disciplines }, interfaceGrade = escolaTrybe) => ({
   name,
-    disciplines: disciplines.map(({ name, grade }) => {
+    disciplines: disciplines.map(({ name: dd, grade }) => {
       let letterGrade;
 
-    while (true) {
-      const { note, letra } = escolaTrybe;
-      if (grade >= note) {
-        letterGrade = letra;
-        break;
-      }
+    const gradesInterface = interfaceGrade.sort((a, b) => b.note - a.note);
+    for (let i = 0; i < gradesInterface.length; i += 1) {
+      const { note, letra } = gradesInterface[i];
+      if (grade >= note) { letterGrade = letra; break; }
     }
-    return { name, grade, letterGrade };
+    return { name: dd, grade, letterGrade };
   }) });
 
-const resultadodadoidera = percentageGradesIntoLettersDoidera(students);
+const resultadodadoidera = percentageGradesIntoLettersDoidera(students[0]);
 console.log(resultadodadoidera);
