@@ -15,22 +15,20 @@ const students = [
     ],
   },
 ];
-
+const numberToLetter = {
+  1: 'A',
+  0.9: 'A',
+  0.8: 'B',
+  0.7: 'C',
+  0.6: 'D',
+};
 /* "Converter" */
 const percentageGradesIntoLetters = ({ name, disciplines }) => ({
   name,
   disciplines: disciplines.map(({ name, grade }) => {
-    let letterGrade;
-
-    if (grade >= 0.9) letterGrade = 'A';
-    else if (grade >= 0.8) letterGrade = 'B';
-    else if (grade >= 0.7) letterGrade = 'C';
-    else if (grade >= 0.6) letterGrade = 'D';
-    else if (grade >= 0.1) letterGrade = 'E';
-    else letterGrade = 'F';
-
+    const letterGrade = numberToLetter[(Math.round(grade * 10)) / 10] || 'F';
     return { name, grade, letterGrade };
-  })});
+  }) });
   
 /* "Determinar" */
 const approvedStudents = ({ disciplines }) =>
@@ -64,7 +62,5 @@ module.exports = {
   updateApprovalData,
   setApproved,
 };
-
-
 
 setApproved(students);
