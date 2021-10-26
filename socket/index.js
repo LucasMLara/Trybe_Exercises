@@ -10,7 +10,14 @@ const corsOptions = {
 
 const io = require('socket.io')(http, corsOptions)
 
-io.on('connection', (socket) => console.log(`Usuário conectado. ID: ${socket.id}`))
+io.on('connection', (socket) => {
+  console.log(`Usuário conectado. ID: ${socket.id}`)
+  
+  socket.on('ping', () => {
+    console.log(`${socket.id} emitiu um ping`);
+    
+  })
+})
 
 app.get('/', (req, res) => res.sendFile(__dirname + '/index.html'))
 http.listen(PORT, () => console.log(`Example app listening on port ${PORT}!`))
