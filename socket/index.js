@@ -3,8 +3,6 @@ const app = express()
 const http = require('http').createServer(app)
 const { PORT = 3000 } = process.env; 
 
-
-
 const io = require('socket.io')(http)
 
 app.use(express.static(__dirname + '/public'));
